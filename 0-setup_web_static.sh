@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 
 if ! command -v nginx >/dev/null 2>&1; then
 sudo apt-get update -y
