@@ -6,7 +6,7 @@ sudo apt-get install nginx -y
 fi
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared/
-echo "working jules" | sudo tee /data/web_static/releases/test/index.html > /dev/null
+echo "<html>\n<head>\n</head>\n<body>\nHolbeton School\n</body>\n</html>" | sudo tee /data/web_static/releases/test/index.html > /dev/null
 sudo ln -sfn /data/web_static/releases/test/ /data/web_static/current
 sudo chown -R ubuntu /data/
 CONFIG_FILE="/etc/nginx/sites-available/default"
