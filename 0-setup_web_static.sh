@@ -25,11 +25,8 @@ CONFIG_FILE="/etc/nginx/sites-available/default"
 
 # Check if hbnb_static location already exists
 if ! grep -q "hbnb_static" "$CONFIG_FILE"; then
-    # Insert location block before the first closing brace in server block
-    sudo sed -i '/^\tserver {/,/^\t}/ {
-        /^\t}/i \
-\n\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}
-    }' "$CONFIG_FILE"
+    # Insert location block before the first closing brace of the server block
+    sudo sed -i '/^}/ i \\n\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' "$CONFIG_FILE"
 fi
 
 # Test nginx configuration and restart if valid
